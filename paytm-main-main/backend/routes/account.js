@@ -26,6 +26,7 @@ router.post("/transfer",authMiddleware , async (req, res) => {
     const account = await Account.findOne({
         userId: req.userId
     }).session(session);
+    
     const toAccount = await Account.findOne({
         userId: to
     }).session(session);
