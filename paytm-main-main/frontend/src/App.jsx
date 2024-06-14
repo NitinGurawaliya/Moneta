@@ -7,6 +7,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/signup" />
+            <Route path="/signup" />
+            <Route path="/signup" />
+            <Route path="/signup" />
+
           </Routes>
         </BrowserRouter>
     </div>
