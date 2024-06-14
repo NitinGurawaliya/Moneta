@@ -6,10 +6,10 @@ function App() {
     <div>
         <BrowserRouter>
           <Routes>
-            <Route path="/signup" />
-            <Route path="/signup" />
-            <Route path="/signup" />
-            <Route path="/signup" />
+            <Route path="/signup"  element={<Signup />}/>
+            <Route path="/signup" element={<Signin />} />
+            <Route path="/signup" element={<Dashboard />} />
+            <Route path="/signup" element={<Send />}/>
 
           </Routes>
         </BrowserRouter>
