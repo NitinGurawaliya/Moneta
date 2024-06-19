@@ -1,9 +1,9 @@
 const mongoose=require("mongoose");
 const { string } = require("zod");
 
-mongoose.connect("mongodb://localhost:27017/paytm"+ "replicaSet=rs")
+mongoose.connect("mongodb+srv://221030201:qJYxKYmP2YQTwNIs@cluster0.ukfua3o.mongodb.net/paytm")
 
-// + "replicaSet=rs"
+
 
 
 const userSchema=new mongoose.Schema({
