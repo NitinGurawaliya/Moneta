@@ -45,7 +45,7 @@ export const Signup = () => {
     </div>
   </div>
 
-  
+   
 async function HandlerSignup(){
   const response =await axios.post("http://localhost:3002/api/v1/user/signup",{
     firstName,
@@ -55,7 +55,6 @@ async function HandlerSignup(){
     
   });
   if(response.data.token){
-    navigate("/dashboard")
     localStorage.setItem("token",response.data.token)
   }
   else{
