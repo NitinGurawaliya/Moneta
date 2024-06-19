@@ -18,8 +18,8 @@ const signupbody=zod.object({
 router.post("/signup", async (req, res) => {
     const { success } = signupbody.safeParse(req.body)
     if (!success) {
-        return res.status(411).json({
-            message: "Email already taken / Incorrect inputs"
+        return res.json({
+            message: "Incorrect inputs"
         })
     }
 
@@ -28,7 +28,7 @@ router.post("/signup", async (req, res) => {
     });
 
     if (existingUser) {
-        return res.status(411).json({
+        return res.json({
             message: "Email already taken/Incorrect inputs"
         })
     }
@@ -52,7 +52,7 @@ router.post("/signup", async (req, res) => {
 
     res.json({
         message: "User created successfully",
-        token: token
+        token : token
     })
 })
 
@@ -88,7 +88,7 @@ if(user){
     })
     return;
 }
-res.status(411).json({
+res.status(403).json({
     message: "Error while logging in"
 })
 })
@@ -105,7 +105,7 @@ router.put("/",authMiddleware,async (req,res)=>{
     const {success}=updateBody.safeParse(req.body)
 
     if(!success){
-        res.status(411).json({
+        res.status(403).json({
             msg:"Error while updating   "
         })
     }
