@@ -16,6 +16,7 @@ router.get("/balance", authMiddleware, async (req, res) => {
         balance: account.balance
     })
 });
+
 router.post("/transfer",authMiddleware , async (req, res) => {
     const session = await Account.startSession();
 
