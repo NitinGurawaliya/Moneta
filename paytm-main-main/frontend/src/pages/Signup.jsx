@@ -7,6 +7,7 @@ import { Subheading } from "../components/Subheading"
 import axios from "axios"
 
 export const Signup = () => {
+  // const navigate = useNavigate()
   const [firstName,setFirstName]=useState("")
   const [lastName,setLastName]=useState("")
   const [username,setUsername]=useState("")
@@ -35,20 +36,30 @@ export const Signup = () => {
         }} placeholder="@#$%^&" label={"Password"} />
         <div className="pt-4">
 
-          <Button onClick={async ()=>{
-
-          const response= await axios.post("http://localhost:3002/api/v1/user/signup",{
-              username,
-              firstName,
-              lastName,
-              password
-            },
-           )
-           console.log(response)
-          }} label={"Sign up"} />
+          <Button onClick={HandlerSignup} label={"Sign up"} />
         </div>
+
         <BottomWarning label={"Already have an account?"} buttonText={"Sign in"} to={"/signin"} />
       </div>
+
     </div>
   </div>
+
+  
+async function HandlerSignup(){
+  const response =await axios.post("http://localhost:3002/api/v1/user/signup",{
+    firstName,
+    lastName,
+    username,
+    password
+    
+  });
+  if(response.data.token){
+    navigate("/dashboard")
+    localStorage.setItem("token",response.data.token)
+  }
+  else{
+    alert(response.data.msg)
+  }
 }
+};
