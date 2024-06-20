@@ -5,9 +5,10 @@ import { Heading } from "../components/Heading"
 import { InputBox } from "../components/InputBox"
 import { Subheading } from "../components/Subheading"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 export const Signup = () => {
-  // const navigate = useNavigate()
+  const navigate= useNavigate();
   const [firstName,setFirstName]=useState("")
   const [lastName,setLastName]=useState("")
   const [username,setUsername]=useState("")
@@ -56,6 +57,7 @@ async function HandlerSignup(){
   });
   if(response.data.token){
     localStorage.setItem("token",response.data.token)
+    navigate("/dashboard")
   }
   else{
     alert(response.data.msg)
