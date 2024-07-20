@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 export const Users = () => {
+    
     // Replace with backend call
     const [users, setUsers] = useState([]);
     const[filter,setFilter]= useState("");
@@ -17,6 +18,7 @@ export const Users = () => {
             setUsers(response.data.user)
         })
     },[filter])
+
     return <>
         <div className="font-bold mt-6 text-lg">
             Users
@@ -24,6 +26,7 @@ export const Users = () => {
         <div onChange={(e)=>{
             setFilter(e.target.value)
         }} className="my-2">
+
             <input type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
         </div>
         <div>
@@ -48,6 +51,7 @@ function User({user}) {
                 </div>
             </div>
         </div>
+        
 
         <div className="flex flex-col justify-center h-ful">
             <Button onClick={(e)=>{
