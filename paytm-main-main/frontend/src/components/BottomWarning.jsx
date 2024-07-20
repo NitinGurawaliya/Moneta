@@ -9,5 +9,5 @@ export function BottomWarning({label,buttonText,to}){
             {buttonText}
         </Link>
     </div>
-
+                
 }
