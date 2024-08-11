@@ -2,6 +2,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams,useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../config"
+
 
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();
