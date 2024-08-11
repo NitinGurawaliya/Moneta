@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://moneta-fbp9.onrender.com/"
