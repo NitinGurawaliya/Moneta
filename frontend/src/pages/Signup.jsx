@@ -6,7 +6,7 @@ import { InputBox } from "../components/InputBox"
 import { Subheading } from "../components/Subheading"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-
+import { BACKEND_URL } from "../config"
 export const Signup = () => {
   const navigate= useNavigate();
   const [firstName,setFirstName]=useState("")
@@ -16,7 +16,7 @@ export const Signup = () => {
 
   async function HandlerSignup(){
     try {
-      const response =await axios.post("http://localhost:3000/api/v1/user/signup",{
+      const response =await axios.post(`${BACKEND_URL}api/v1/user/signup`,{
         firstName,
         lastName,
         username,
